@@ -1,0 +1,323 @@
+﻿<!-- zad 1) --> 
+
+a = input("Podaj 1 liczbę - ")
+
+b = input("Podaj 2 liczbę - ")
+
+wynik = int(a)*int(b)
+
+print('Wynik to:', wynik)
+
+<!-- zad 2) -->
+n=int(input('podaj liczbe: '))
+
+if n % 2 == 0:
+    print("Liczba " ,n,"jest parzysta")
+else:
+    print("Liczba " ,n ,"jest nieparzysta")
+
+<!-- zad 3) -->
+n = int(input("Podaj liczbę naturalną: "))
+def suma(n):
+    s = 0
+    for i in range(1,n):
+        s = s + (i*i)
+    return s
+
+    if n<0:
+        print("Zła liczba natualna")
+print(suma(n))
+
+<!-- zad 4) -->
+n = int(input("Podaj liczbę naturalną: "))
+def czy_pierwsza(n):
+    if n == 2:
+        return "Liczba  jest parzysta"
+    if n % 2 == 0 or n <= 1:
+        print("Liczba nie jest parzysta")
+print(czy_pierwsza(n))
+
+<!-- zad 5) -->
+print("Program do obliczania dzielników liczby.")
+
+a = int(input("Podaj liczbe do sprawdzenia: "))
+
+def dzielniki(n):
+    for i in range(1, int(n/2)+1):
+	    if n % i == 0:
+	        print("Dzielniki liczby "+ str(n) +" to: "+str(i))
+    print("Dzielniki liczby: "+ str(n) +" to: "+ str(n))
+
+print(dzielniki(a))
+
+<!-- zad 6) -->
+n = int(input("podaj liczbę do rozłożenia na czynniki: "))
+
+def rozloz(n):
+    czynniki = []
+    k = 2
+    while n != 1:
+        while n % k == 0:
+            n //= k
+            czynniki.append(k)
+        k += 1
+    
+    return czynniki
+
+print(rozloz(n))
+
+<!--7) -->
+a = int(input("Podaj 1 liczbę:"))
+
+b = int(input("Podaj 2 liczbę:"))
+
+
+def nwd(a, b):
+    
+	if b > 0:
+        
+		return nwd(b, a%b)
+    
+		return a
+    
+
+def nww(a, b): 
+    
+	return a*b//nwd(a, b)
+    
+
+
+print(nww(a,b))
+<!-- zad 8. -->
+n = int(input("Podaj liczbę:"))
+
+print(bin(n)[2:])
+<!-- zad 9. -->
+print("Dla równania ax^2+bx-c=0,")
+a = int(input("Podaj współczynnik a funkcji kwadratowej:"))
+b = int(input("Podaj współczynnik b funkcji kwadratowej:"))
+c = int(input("Podaj współczynnik c funkcji kwadratowej:"))
+
+
+delta = (b*b)-(4*a*c)
+if delta > 0:
+    x1 = (-b-delta*(1/2))/(2*a)
+    x2 = (-b+delta*(1/2))/(2*a)
+    print ('x1 = '), x1, ("x2= "), x2
+elif delta == 0:
+    x0 = int(-b/(2*a))
+    print ("x0 = ",x0)
+else:
+    print ('brak rozwiązań')
+
+<!-- zad 10 -->
+n = int(input("podaj liczbę:"))
+def silnia(n):
+    wynik = 1
+    for i in range(1, n+1):
+        wynik *= i
+    return wynik
+    
+print(silnia(n))
+<!-- zad 10 cz.2 -->
+n = int(input("podaj liczbę:"))
+import math
+
+def silnia(n):
+    return math.factorial(n)
+    
+print(silnia(n))
+
+<!-- zad 11) -->
+print("Podaj n-tą liczbę ciągu Fibbonaciego:")
+
+n = int(input())
+
+def fibo(n):
+    if (n == 0):
+        return 0
+    if (n == 1):
+        return 1
+    return fibo(n-1)+fibo(n-2)
+print(fibo(n))
+
+<!-- zad 12) -->
+n = input("Wprowadź liczby oddzielone przecinkami: ")
+def cumulative_sum(*args):
+    cum_sum = []
+    total_sum = 0
+    for arg in args:
+        total_sum += arg
+        cum_sum.append(total_sum)
+    return cum_sum
+
+numbers = [int(x.strip()) for x in n.split(",")]
+result = cumulative_sum(*numbers)
+print(result)
+
+<!-- zad 13) -->
+n = int(input("Podaj z ilu liczb, obliczyć średnią: "))
+suma = 0
+
+for i in range(1, n+1):
+       print("Podaj liczbę " + str(i))
+       a = float(input())
+       suma += a
+if n <=0:
+    print("Podałeś liczb mniejszą od 0")
+    
+print(i)
+    
+
+
+print("średnia ocen to " + str(suma/n))
+
+<!-- zad 14. -->
+print("Podaj ciąg znaków do odwrócenia:")
+
+txt = input()
+
+newtext = txt [::-1]
+print(newtext)
+
+<!-- zad 15. -->
+print("Podaj zdanie do policzenia małych i dużych liter:")
+n = str(input())
+
+lower = 0
+upper = 0
+a = n.strip()
+for i in a:
+      if(i.islower()):
+            lower +=1
+      elif(i.isupper()):
+            upper += 1
+      else:
+            continue
+
+print("Liczba małych liter:",lower)
+print("Liczba dużych liter:",upper)
+
+<!-- zad 16. -->
+print("Podana tablica: ")
+thislist = ["pomarańczowy","niebieski","fioletowy"]
+print(thislist)
+
+print("Jaki znak chcesz dodać do listy: ")
+n = str(input())
+
+thislist.append(n)
+
+print(thislist)
+
+<!-- zad 17 -->
+n = str(input("Podaj słowowo do statystyk:"))
+
+def char_frequency(string):
+    freq = {}
+    for char in string:
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
+    return freq
+
+string = n
+freq = char_frequency(string)
+print(freq)
+
+<!-- zad 18. -->
+print("Podaj zdanie do rozdzielenia:")
+n = str(input())
+words = n.split(",")
+print(words)
+
+<!-- zad 19. -->
+print("Podaj zdanie do zmiany: ")
+
+n = str(input())
+
+a = n.title()
+
+print(a)
+<!-- zad 20) -->
+n = str(input("podaj przykłądowy tekst: "))
+
+import re
+
+
+def sentence_case(string):
+    if string != '':
+        result = re.sub('([A-Z])', r' \1', string)
+        return result[:1].upper() + result[1:].lower()
+    return
+
+
+text = n
+print(sentence_case(text))
+
+<!-- zad 21. -->
+print("Podaj liczbę początkową:")
+p=int(input())
+
+print("Podaj ilość iterracji:")
+a = int(input())
+
+def babilon(p,a):
+
+    for i in range(a):
+        p = (p + a / p) / 2
+        a = a / p
+
+    return p
+print("Przybliżona wartość: ")
+print(babilon(p,a))
+
+<!-- zad 22. -->
+n = int(input("podaj liczbę: "))
+
+import random
+def monte_carlo_pi(n):
+
+    inside_circle = 0
+
+
+    for i in range(n):
+        x = random.uniform(0, 1)
+        y = random.uniform(0, 1)
+        if x ** 2 + y ** 2 <= 1:
+            inside_circle += 1
+
+    pi = 4 * inside_circle / n
+
+    return pi
+
+print(monte_carlo_pi(n))
+
+<!-- zad 23. -->
+print("Lista nr1: ")
+first = ["1", "2", "3"]
+print(first)
+
+print("Lista nr2: ")
+second = ["4", "5","6"]
+print(second)
+a = first[0],second[0]
+b = first[1],second[1]
+c = first[2],second[2]
+third = [a,b,c]
+
+print("Nowa lista")
+print(third)
+
+<!-- zad 24. -->
+print("Zakres od 0 do 100")
+print("Liczby podzielne przez 3 i nie podzielne przez 5:")
+
+for i in range(0,100):
+    if i % 5 != 0 and i % 3 ==0:
+        print(i)
+    else:
+        continue
+
+print(i)
